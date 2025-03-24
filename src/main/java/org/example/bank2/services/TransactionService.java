@@ -6,6 +6,7 @@ import org.example.bank2.repo.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,6 +19,9 @@ public class TransactionService {
     }
 
     public List<Transaction> getAllTransactions() {
+//        LocalDateTime endTime = LocalDateTime.now();
+//        LocalDateTime startTime = endTime.minusMinutes(2);
+//        return transactionRepository.findTransactionsWithinTimeRange(startTime, endTime);
         return transactionRepository.findAll();
     }
 

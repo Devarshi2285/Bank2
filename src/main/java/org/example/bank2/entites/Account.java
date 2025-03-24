@@ -42,26 +42,59 @@ public class Account {
         this.nominees=nominees;
     }
 
-    public String getUser() {
-        return user;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public boolean isBusinessType() {
+        return businessType;
+    }
+
+    public void setBusinessType(boolean businessType) {
+        this.businessType = businessType;
     }
 
     public Double getBalance() {
         return balance;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public void setBalance(Double balance) {
         this.balance = balance;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
 
     public Set<String> getNominees() {
         return nominees;
     }
+
     public void setNominees(Set<String> nominees) {
         this.nominees = nominees;
     }

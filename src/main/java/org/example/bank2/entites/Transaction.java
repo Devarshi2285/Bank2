@@ -14,6 +14,8 @@ import java.time.ZoneOffset;
 @AllArgsConstructor
 @Builder
 @Document(collection = "transactions")
+@Getter
+@Setter
 public class Transaction {
 
     @Id
@@ -25,78 +27,54 @@ public class Transaction {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) // Ensures consistent formatting
     private LocalDateTime createdAt;
 
-    private Object sender; // Sender of the transaction.
+    private UserInTransection sender; // Sender of the transaction.
 
-    private String receiver; // Receiver of the transaction.
+    private String currency;
+    @Getter
+    private UserInTransection receiver; // Receiver of the transaction.
 
-    private String receiverBankId; // Bank ID of the receiver.
+    private String type;
 
-    private String notes; // Notes for the transaction.
+    private String notes;
 
-    public Transaction(Double amount, String sender, String receiver, String receiverBankId, String notes) {
+    private Double balanceAfterTransection;
+
+    public Transaction(Double amount, UserInTransection sender,String currency, UserInTransection receiver, String type, String notes , Double balanceAfterTransection) {
         this.amount = amount;
         this.sender = sender;
         this.receiver = receiver;
         this.notes = notes;
-        this.receiverBankId = receiverBankId;
-        this.createdAt = LocalDateTime.now(ZoneOffset.UTC);
+        this.balanceAfterTransection = balanceAfterTransection;
+        this.type = type;
+        this.currency = currency;
+        this.createdAt = LocalDateTime.now();
     }
 
-    // Getters
+    public UserInTransection getSender() {
+        return sender;
+    }
+    public UserInTransection getReceiver() {
+        return receiver;
+    }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public String getCurrency() {
+        return currency;
+    }
+    public String getType() {
+        return type;
+    }
+    public String getNotes() {
+        return notes;
+    }
+    public Double getBalanceAfterTransection() {
+        return balanceAfterTransection;
+    }
+
     public String getId() {
         return id;
     }
 
     public Double getAmount() {
         return amount;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public Object getSender() {
-        return sender;
-    }
-
-    public String getReceiver() {
-        return receiver;
-    }
-
-    public String getReceiverBankId() {
-        return receiverBankId;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    // Setters
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public void setSender(Object sender) {
-        this.sender = sender;
-    }
-
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
-    }
-
-    public void setReceiverBankId(String receiverBankId) {
-        this.receiverBankId = receiverBankId;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
     }
 }
