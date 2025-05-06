@@ -14,7 +14,7 @@
     import java.util.List;
 
     @RestController
-    @RequestMapping("/transactions")
+        @RequestMapping("/transactions")
     public class TransactionController {
 
         private final TransactionService transactionService;
@@ -62,7 +62,6 @@
                 // Ensure the sender has enough balance for the transaction
 
 
-                // Subtract the amount from sender's balance
                 receiverAccount.setBalance(receiverAccount.getBalance() + transaction.getAmount());
                 System.out.println(receiverAccount.getId());
                 accountService.updateAccount(receiverAccount.getId(),receiverAccount); // Save the updated sender's balance
@@ -101,13 +100,13 @@
 
         // Endpoint to get all transactions
         @GetMapping
-        public List<Transaction> getAllTransactions() {
+        public ResponseEntity<List<Transaction>> getAllTransactions() {
 
             List<Transaction> transactions= transactionService.getAllTransactions();
 
 
 
-            return transactions;
+            return ResponseEntity.ok(transactions);
         }
 
 

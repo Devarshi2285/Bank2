@@ -37,44 +37,89 @@ public class Transaction {
 
     private String notes;
 
-    private Double balanceAfterTransection;
+    private Double balanceAfterTransaction;
 
-    public Transaction(Double amount, UserInTransection sender,String currency, UserInTransection receiver, String type, String notes , Double balanceAfterTransection) {
+    public Transaction(Double amount, UserInTransection sender,String currency, UserInTransection receiver, String type, String notes , Double balanceAfterTransaction) {
         this.amount = amount;
         this.sender = sender;
         this.receiver = receiver;
         this.notes = notes;
-        this.balanceAfterTransection = balanceAfterTransection;
+        this.balanceAfterTransaction = balanceAfterTransaction;
         this.type = type;
         this.currency = currency;
         this.createdAt = LocalDateTime.now();
     }
 
-    public UserInTransection getSender() {
-        return sender;
-    }
-    public UserInTransection getReceiver() {
-        return receiver;
-    }
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public String getCurrency() {
-        return currency;
-    }
-    public String getType() {
-        return type;
-    }
-    public String getNotes() {
-        return notes;
-    }
-    public Double getBalanceAfterTransection() {
-        return balanceAfterTransection;
-    }
 
     public String getId() {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public Double getAmount() {
         return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public UserInTransection getSender() {
+        return sender;
+    }
+
+    public void setSender(UserInTransection sender) {
+        this.sender = sender;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public UserInTransection getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(UserInTransection receiver) {
+        this.receiver = receiver;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public Double getBalanceAfterTransection() {
+        return balanceAfterTransaction;
+    }
+
+    public void setBalanceAfterTransection(Double balanceAfterTransection) {
+        this.balanceAfterTransaction = balanceAfterTransection;
     }
 }
